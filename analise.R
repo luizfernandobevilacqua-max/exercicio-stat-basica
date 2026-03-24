@@ -1,2 +1,1 @@
-print("Olá, GitHub!")
-summary(cars)
+hist(islands)
