@@ -1,0 +1,47 @@
+---
+title: "Relatório Final - Aula 3"
+author: "Luiz Fernando Bevilacqua"
+date: "2026-03-24"
+output: html_document
+---
+
+# Exercício 7: Renderização Inicial
+
+Este documento demonstra a integração entre R, Markdown e Git.
+
+# Exercício 8: Formatação e Vetores
+
+-   Exemplo de texto em **negrito** e *itálico*.
+-   **Lista de aprendizado:**
+    1.  Controle de versão com Git.
+    2.  Criação de ramos (branches).
+    3.  Documentação dinâmica com R Markdown.
+
+### Cálculo de Média
+
+```{r}
+meu_vetor <- c(10, 20, 30, 40, 50)
+media_resultado <- mean(meu_vetor)
+media_resultado
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+
+# Lendo o arquivo (certifique-se que está na pasta dados)
+dados_pib <- readRDS("pib_cid.RDS")
+
+# Gerando a tabela
+kable(head(dados_pib, 10), caption = "Tabela 1: Top 10 Municípios (PIB)")
+
+# Gerando o gráfico
+hist(dados_pib$pib_per_capita, 
+     main = "Distribuição do PIB per Capita Municipal", 
+     col = "lightblue", 
+     xlab = "PIB per Capita",
+     ylab = "Frequência")
+     
+     media_final <- mean(dados_pib$pib_per_capita, na.rm = TRUE)
+```
+A média aritmética é calculada pela fórmula:$$\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i$$
+Resultado Final: A média do PIB per capita é de R\$ `r round(media_final, 2)`
